@@ -1,26 +1,26 @@
 <!-- partial file as significed by "_" -->
 <div>
-<label>Title</label>
- <input type="text" name="title" value="<%= book.title %>">
+    <label>Title</label>
+    <input type="text" name="title" value="<%= book.title %>">
  </div>
  <div>
- <label>Author</label>
- <!-- Get a dropdown list of authors by selecting authors variable from server -->
- <select name="author">
- <% authors.forEach(author => { %>
-    <% if (author.id === book.author) { %>
-        <option selected label="<%= author.name %>" value="<%= author.id %>">
-    <% } else { %>
-        <option label="<%= author.name %>" value="<%= author.id %>">
-    <% } %>
-<% }) %>
-</select>
+    <label>Author</label>
+    <!-- Get a dropdown list of authors by selecting authors variable from server -->
+    <select name="author">
+    <% authors.forEach(author => { %>
+        <% if (author.id === book.author) { %>
+            <option selected label="<%= author.name %>" value="<%= author.id %>">
+        <% } else { %>
+            <option label="<%= author.name %>" value="<%= author.id %>">
+        <% } %>
+    <% }) %>
+    </select>
 </div>
 <div>
-<label>Publish Date</label>
-<!-- inline if statement ... [?] stuff here is if true [:] stuff here is if false -->
- <!-- toISOString().spit('T')[0] == convert date to ISOSTring but split at "T" in format mm/dd/yyyyThh:mm and return the first index = mm/dd/yyyy -->
-<input type="date" name="publishDate" value="<%= book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0] %>">
+    <!-- inline if statement ... [?] stuff here is if true [:] stuff here is if false -->
+    <label>Publish Date</label>
+    <input type="date" name="publishDate" value="<%= book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0] %>">
+    <!-- toISOString().spit('T')[0] == convert date to ISOSTring but split at "T" in format mm/dd/yyyyThh:mm and return the first index = mm/dd/yyyy -->
 </div>
 <div>
     <label>Page Count</label>
@@ -28,7 +28,7 @@
 </div>
 <div>
     <label>Cover</label>
-    <input type="file" name="cover">
+    <input type="file" name="cover" class="filepond">
 </div>
 <div>
     <label>Description</label>
